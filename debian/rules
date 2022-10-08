@@ -1,0 +1,16 @@
+#! /usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS := hardening=+all
+
+%:
+	dh $@ --with autoreconf --parallel
+
+override_dh_auto_build:
+	dh_auto_build
+	cd po && make update-gmo
+
+override_dh_clean:
+	dh_clean
+	cd po && rm -f de.gmo 
+
+

@@ -1,0 +1,3 @@
+version=2
+opts=pgpmode=auto \
+http://download.savannah.gnu.org/releases/icoutils/icoutils-(.*)\.tar\.bz2
