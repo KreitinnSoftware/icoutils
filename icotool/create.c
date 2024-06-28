@@ -18,21 +18,7 @@
 
 #include <config.h>
 #include <assert.h>		/* C89 */
-#if HAVE_PNG_H
-# include <png.h>
-#else
-# if HAVE_LIBPNG_PNG_H
-#  include <libpng/png.h>
-# else
-#  if HAVE_LIBPNG10_PNG_H
-#   include <libpng10/png.h>
-#  else
-#   if HAVE_LIBPNG12_PNG_H
-#    include <libpng12/png.h>
-#   endif
-#  endif
-# endif
-#endif
+#include <libpng16/png.h>
 #include <stdint.h>		/* Gnulib/POSIX */
 #include <stdio.h>		/* C89 */
 #include <stdbool.h>		/* Gnulib/POSIX */

@@ -93,21 +93,11 @@ AC_CHECK_TYPES([comparison_fn_t])
 AC_FUNC_FORK
 AC_CHECK_FUNCS([pow])
 
-# Check for libpng
-AC_CHECK_LIB(png, png_create_read_struct, [
-AC_SUBST(PNG_LIBS, "-lpng -lz -lm")
-], [
-  AC_CHECK_LIB(png10, png_create_read_struct, [
-  AC_SUBST(PNG_LIBS, "-lpng10 -lz -lm")
-  ], [
-    AC_CHECK_LIB(png12, png_create_read_struct, [
-    AC_SUBST(PNG_LIBS, "-lpng12 -lz -lm")
-    ], [
-      AC_MSG_ERROR([cannot find required library png])
-    ], [-lz -lm])
-  ], [-lz -lm])
+# Check for libpng16
+AC_CHECK_LIB(png16, png_create_read_struct, [
+AC_SUBST(PNG_LIBS, "-lpng16 -lz -lm")
 ], [-lz -lm])
-AC_CHECK_HEADERS([png.h libpng/png.h libpng10/png.h libpng12/png.h locale.h])
+AC_CHECK_HEADERS([libpng/png16.h locale.h])
 
 AC_CONFIG_FILES([Makefile
 		 icoutils.spec
